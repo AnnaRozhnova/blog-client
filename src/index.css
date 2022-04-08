@@ -1,0 +1,201 @@
+
+body {
+  color: #1C1C1C;
+}
+
+a {
+  text-decoration: none;
+  color: #1C1C1C;
+}
+header {
+
+  display: flex;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  background: #B0E0E6;
+  width: 100%;
+  padding-left: 9%;
+  padding-right: 9%;
+}
+
+header .login {
+  margin-left: auto;
+}
+
+header div {
+  margin: 1%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  }
+
+   .content .username {
+    border: 0px;
+    font-size: 1.25rem;
+    height: 2rem;
+    background: #FFFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+  }
+   .content .name {
+    border: 0px;
+     font-size: 2rem;
+     height: 2rem;
+     background: #FFFFFF;
+     text-align: center;
+     margin-bottom: 30px;
+     padding: 0;
+  }
+    .content .comments-title {
+      border: 0px;
+     font-size: 2rem;
+     height: 2rem;
+     background: #FFFFFF;
+     text-align: left;
+     
+     margin-top: 50px;
+     padding: 0;
+    }
+.content .create {
+  font-size: 1.25rem;
+  height: 2rem;
+  text-align: center;
+  width: 8em;
+  padding: 0.9em 10px 10px 10px;
+  background: #B0E0E6;
+}
+
+
+.content > div {
+  padding: 20px;
+  margin: 10px;
+  width: 80%;
+  border: 1px solid #1E90FF;
+  border-radius: 1em;
+  background: white;
+  text-align: left;
+}
+.content div .date {
+  padding: 0;
+  margin: 0;
+  width: 10em;
+}
+.content div h3 {
+  padding: 0;
+  margin-top: 0;
+}
+.post-title {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
+
+.content .title {
+  border: 0px;
+  font-size: 2rem;
+  text-align: center;
+}
+form > div {
+  width: 85%;
+}
+form input, textarea, button {
+  box-sizing: border-box;
+  height: 3em;
+  width: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  border: 1px solid #1E90FF;
+  border-radius: 1em;
+
+}
+
+form textarea {
+  height: 250px;
+}
+
+form button {
+  width: 9em;
+  height: 2em;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  margin-top: 40px;
+}
+
+
+form .create-account {
+  margin-top: 40px;
+}
+
+.content .signin {
+  height: 300px;
+  width: 400px;
+}
+.content .signin form {
+  height: 300px;
+}
+
+.content .signup {
+  height: 340px;
+  width: 400px;
+}
+.content .signup form {
+  height: 340px;
+}
+
+.content .comment {
+  background: #EFF2FB;
+}
+
+.content .add-comment { 
+  height: 10rem;
+  background: #EFF2FB;
+}
+
+.content .add-comment form { 
+  height: 10rem;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.add-comment textarea{ 
+  font-size: 1rem;
+  padding: 10px;
+  height: 5rem;
+  margin-top: 0px;
+}
+.add-comment button {
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.content .user {
+  font-size: 1.4rem;
+  width: 600px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.user-username {
+  float: right;
+}
+.user-name {
+  float: left;
+}
