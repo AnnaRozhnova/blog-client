@@ -1,4 +1,6 @@
+
 import React from 'react';
+
 import {
     Route,
     BrowserRouter,
@@ -13,7 +15,41 @@ import PostPage from '../pages/PostPage';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import UserPage from '../pages/UserPage';
+import sendRequest, { SIGN_OUT_URL } from '../utils';
+import Swal from 'sweetalert2';
 class AppRouter extends React.Component {
+    /*
+    constructor(props) {
+        this.state = {username: ''}
+    }
+*/
+
+
+    handleSignOut = (e) => {
+        sendRequest(SIGN_OUT_URL, {
+            method: 'POST', 
+            credentials: 'include'
+        }).then(data =>  {
+            if (data.max_age == -1) {
+                this.setState({username: ''})
+                console.log(data)
+                console.log(this.state)
+                document.cookie = "session=*; expires=Tue, 19 Jan 2020 03:14:07 GMT"
+            } else {
+                Swal.fire({  
+                    title: 'Ошибка!',  
+                    type: 'error',  
+                    text: 'Выход выполнен некорректно.', 
+                    showCloseButton: true,
+                    closeButtonHtml: '<span  color=red>&#10006;</span>',
+                     
+                  }); 
+            }
+            
+        })
+    }
+
+
     render() {
         return (
             <BrowserRouter>
@@ -21,7 +57,9 @@ class AppRouter extends React.Component {
                    <div><Link to="/posts">ПОСТЫ</Link></div>
                    <div><Link to="/users">БЛОГИ</Link></div>
                    <div class="login"><Link to="/sign-in">ВОЙТИ</Link></div>
+                   <div class="login" onClick={this.handleSignOut}>ВЫЙТИ</div>
                 </header>
+                
                 <div class="content">
                 <Routes>
                     <Route path='posts' element={<Posts />} />  

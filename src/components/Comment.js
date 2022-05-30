@@ -5,7 +5,7 @@ class Comment extends React.Component {
     render() {
         return (
             <div class="comment">
-                <h3>{ this.props.email }</h3>
+                <h3>{ this.props.username }</h3>
                 <p>{ this.props.body }</p>
             </div>
         );

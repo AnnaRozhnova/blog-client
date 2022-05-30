@@ -2,7 +2,7 @@ import React from "react";
 import Post from "../components/Post.js";
 import Profile from "../components/Profile";
 
-import { kitcut } from "../utils";
+import { kitcut, GET_POSTS_URL } from "../utils";
 import sendRequest from "../utils";   
 import { Link } from "react-router-dom";
 
@@ -17,12 +17,12 @@ import { Link } from "react-router-dom";
      this.state = {data: []};
    }
     componentDidMount() {
-          sendRequest('https://jsonplaceholder.typicode.com/posts').then(data => this.setState({data: data}))
+          sendRequest(GET_POSTS_URL).then(data => this.setState({data: data}))
 
     }
     render() {
 
-      
+      console.log(this.state)
       let posts = this.state.data.map(post => <div><Link to={`/post/${post.id}`}><Post title={post.title} body={kitcut(post.body, 150)}/></Link></div>)
 
       return(
