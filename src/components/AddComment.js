@@ -1,13 +1,13 @@
 import React from 'react';
 import { CREATE_COMMENT_URL } from '../utils';
-import $ from 'jquery';
+import sendRequest from '../utils';
 
 
 
 class AddComment extends React.Component {
 
     
-    handleForm = async (e) => {
+    handleForm = (e) => {
         e.preventDefault();
         var form = document.getElementById('myForm');
         var formData = new FormData(form);
@@ -15,18 +15,20 @@ class AddComment extends React.Component {
         objData.post_id = Number(objData.post_id)
         var jsonData = JSON.stringify(objData)
 
-        
-
-        let response = await fetch(CREATE_COMMENT_URL, {
+        if (!objData["body"]) {
+            return    
+        } else {
+            let res = sendRequest(CREATE_COMMENT_URL, {
                 method: 'POST', 
                 body: jsonData,
-        })
-
-        if (response.status == 200 ) {
-            this.props.setComments(this.props.comments.unshift({username: "Ann", body: "UUU BBB"}))
-            console.log(this.props.comments)
+                credentials: 'include',
+            })
+        
+            if (res) {
+                form.reset()
+                this.props.addCommentItem(objData)
+            }
         }
-        console.log(response)
         
     }
 
@@ -36,9 +38,11 @@ class AddComment extends React.Component {
             <div class="add-comment">
                 <form id="myForm">
                     <textarea name="body" placeholder="Ваш комметнарий"></textarea>
-                    <input type="number" name="post_id" value={this.props.id} />
+                    <input type="number" name="post_id" hidden value={this.props.id} />
+                    <input type="text" name="username" hidden value={document.cookie.slice(0, document.cookie.indexOf("="))} />
                     <button onClick={this.handleForm}>Добавить</button>
                 </form>    
+
             </div>
         );
     }

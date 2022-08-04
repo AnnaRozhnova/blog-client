@@ -1,18 +1,8 @@
-import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 import React, { Fragment } from 'react';
+import { Link, Navigate } from "react-router-dom";
+import { SIGN_UP_URL, sendRequest, fieldError, error } from '../utils';
 
-import Swal from 'sweetalert2';
-import { SIGN_UP_URL } from '../utils';
 
-/*
-onChangeInput(event) {         
-    const { name } = event.currentTarget;         
-    const { value } = event.currentTarget;         
-    this.setState(state => ({ objectItems: { ...state.objectItems, [name]: value,          
-        [`${name}IsValid`]: this.validate(value) } }), () => this.validateData());      
-}
-
-*/
 class SignUp extends React.Component {
     constructor(props) {
         super(props)
@@ -26,40 +16,23 @@ class SignUp extends React.Component {
         var objData = Object.fromEntries(formData)
         
         if (!objData["username"] || !objData["name"] || !objData["password"]) {
-            //this.setState({error: true, textError: "Ошибка! Проверьте, все ли поля заполнены"})
-            console.log(objData["username"])
-            
-            Swal.fire({  
-                title: 'Ошибка!',  
-                type: 'error',  
-                text: 'Проверьте, все ли поля заполнены.', 
-                showCloseButton: true,
-                closeButtonHtml: '<span  color=red>&#10006;</span>',
-                 
-              }); 
-              
+            fieldError()    
         } else {
             var jsonData = JSON.stringify(objData)
-            console.log(jsonData)
             let response = await fetch(SIGN_UP_URL, {
                 method: 'POST', 
                 credentials: 'include',
                 body: jsonData,
-        })
-        console.log(response)
-        if (response.status == 200 ) {
-            console.log("200")
-        }
-        }
-    }
-    errorToFalse = (e) => {
-        this.setState({error: false, textError: "Ошибка!"})
-    } 
+            })
 
-    errorToTrue = () => {
-        console.log("ERRRRRRR")
-        this.setState({error: true, textError: "Ошибка! Проверьте, все ли поля заполнены"})
+            if (response.status == 200 ) {
+                this.props.updateUsername(objData["username"])
+            } else {
+                error()
+            }   
+        }
     }
+
     render() {
         return (
             <Fragment>
@@ -72,7 +45,7 @@ class SignUp extends React.Component {
                <input class="email" type="text" name="username" placeholder="Username" />
                <input class="name-input" type="text" name="name" placeholder="Название блога" />
                 <input class="password" type="password" name="password" placeholder="Пароль" />
-                <button onClick={this.handleForm}>ОТПРАВИТЬ</button>
+                <button onClick={this.handleForm}><Link to="/">ОТПРАВИТЬ</Link></button>
                 
             </form>
             </div>

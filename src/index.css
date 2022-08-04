@@ -1,6 +1,7 @@
 
 body {
   color: #1C1C1C;
+
 }
 
 a {
@@ -22,12 +23,15 @@ header .login {
   margin-left: auto;
 }
 
+
 header div {
   margin: 1%;
 }
 
 .content {
   display: flex;
+  font-size: 1.13rem;
+  white-space: pre-wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -84,11 +88,7 @@ header div {
   background: white;
   text-align: left;
 }
-.content div .date {
-  padding: 0;
-  margin: 0;
-  width: 10em;
-}
+
 .content div h3 {
   padding: 0;
   margin-top: 0;

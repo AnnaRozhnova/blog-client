@@ -17,57 +17,31 @@ import SignUp from '../pages/SignUp';
 import UserPage from '../pages/UserPage';
 import sendRequest, { SIGN_OUT_URL } from '../utils';
 import Swal from 'sweetalert2';
+import Header from './Header';
 class AppRouter extends React.Component {
-    /*
     constructor(props) {
-        this.state = {username: ''}
-    }
-*/
-
-
-    handleSignOut = (e) => {
-        sendRequest(SIGN_OUT_URL, {
-            method: 'POST', 
-            credentials: 'include'
-        }).then(data =>  {
-            if (data.max_age == -1) {
-                this.setState({username: ''})
-                console.log(data)
-                console.log(this.state)
-                document.cookie = "session=*; expires=Tue, 19 Jan 2020 03:14:07 GMT"
-            } else {
-                Swal.fire({  
-                    title: 'Ошибка!',  
-                    type: 'error',  
-                    text: 'Выход выполнен некорректно.', 
-                    showCloseButton: true,
-                    closeButtonHtml: '<span  color=red>&#10006;</span>',
-                     
-                  }); 
-            }
-            
-        })
+        super(props)
+        this.state = {username: document.cookie.slice(0, document.cookie.indexOf("="))}
     }
 
+    updateUsername = (u) => {
+        this.setState({username: u})
+    }
 
     render() {
         return (
             <BrowserRouter>
-                 <header>
-                   <div><Link to="/posts">ПОСТЫ</Link></div>
-                   <div><Link to="/users">БЛОГИ</Link></div>
-                   <div class="login"><Link to="/sign-in">ВОЙТИ</Link></div>
-                   <div class="login" onClick={this.handleSignOut}>ВЫЙТИ</div>
-                </header>
+                 
+                 <Header username={this.state.username} updateUsername={this.updateUsername} />
                 
                 <div class="content">
                 <Routes>
                     <Route path='posts' element={<Posts />} />  
                     <Route path='users' element={<Users />} />
-                    <Route path='create-post' element={<CreatePost />} />
+                    <Route path='create-post' element={<CreatePost username={this.state.username} />} />
                     <Route path='post/:id' element={<PostPage key="myKey" />} />
-                    <Route path='sign-in' element={<SignIn />} />
-                    <Route path='sign-up' element={<SignUp />} />
+                    <Route path='sign-in' element={<SignIn updateUsername={this.updateUsername} />} />
+                    <Route path='sign-up' element={<SignUp updateUsername={this.updateUsername} />} />
                     <Route path='users' element={<Users />} />
                     <Route path='users/:id' element={<UserPage key="userKey" />} />
                     <Route path="*" element={<Posts />} />
