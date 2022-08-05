@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-/*
+
   export const SIGN_UP_URL = "http://localhost:8000/auth/sign-up"
   export const SIGN_IN_URL = "http://localhost:8000/auth/sign-in"
   export const SIGN_OUT_URL = "http://localhost:8000/auth/sign-out"
@@ -14,10 +14,10 @@ import Swal from 'sweetalert2';
   export const GET_COMMENTS_URL = "http://localhost:8000/comments/"
 
   export const GET_USERS_URL = "http://localhost:8000/users/"
-*/
 
 
 
+/*
 export const SIGN_UP_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-up"
 export const SIGN_IN_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-in"
 export const SIGN_OUT_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-out"
@@ -31,7 +31,7 @@ export const CREATE_COMMENT_URL = "https://rozhnova-blog.herokuapp.com/comments/
 export const GET_COMMENTS_URL = "https://rozhnova-blog.herokuapp.com/comments/"
 
 export const GET_USERS_URL = "https://rozhnova-blog.herokuapp.com/users/"
-
+*/
 
   function fieldError() {
     Swal.fire({  
