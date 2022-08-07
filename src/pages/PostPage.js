@@ -1,47 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
-import sendRequest, { GET_POST_URL, GET_COMMENTS_URL, CREATE_COMMENT_URL } from '../utils';
+import sendRequest, { GET_POST_URL } from '../utils';
 import { useParams } from 'react-router-dom';
 import Post from '../components/Post';
 import Profile from '../components/Profile';
-import AddComment from '../components/AddComment';
 import CommentList from '../components/CommentList';
-import Comment from '../components/Comment'
-
-//window.location.href[window.location.href.length-1]
-//window.location.href[window.location.href.indexOf("/post/")+6]
-//window.location.href.slice(window.location.href.indexOf("/post/")+6)
-//window.location.href.slice(window.location.href.indexOf("/post/")+6).replace("/", "")
-
-/*
-class PostPage extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: window.location.href.slice(window.location.href.indexOf("/post/")+6).replace("/", ""),
-            post: ""
-        }
-        sendRequest(`${GET_POST_URL}${this.state.id}`).then(data => this.setState({post: data}))
-    }
-    //let id = window.location.href.slice(window.location.href.indexOf("/post/")+6).replace("/", "")
-    render() {
-        console.log("POST PAGE")
-        return (
-            <Fragment>
-                <Profile />
-                {this.state.post && <div><Post title={this.state.post.post.title} body={this.state.post.post.body} /></div>}
-                <div class="comments-title">Комментарии:</div>
-
-                <CommentList id={this.state.id} />
-            </Fragment>
-            
-        )
-    }
-}
-*/
-
-
 
 
 
@@ -49,7 +12,6 @@ class PostPage extends React.Component {
 
 const PostPage = () => {
         const {id} = useParams();
-        //const [commentItems, setCommentItems] = useState(null);
         const [post, setPost] = useState(null);
 
         
@@ -64,7 +26,6 @@ const PostPage = () => {
             console.log(post)    
         }, [id]);
         
-/// {post && <Profile username={post.post.username} /> }
 
         return (
             <Fragment>

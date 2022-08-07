@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-  const baseurl = 'https://' + 'rozhnova-blog.herokuapp.com'
+  const baseurl = 'https://' + process.env.URL
 
   export const SIGN_UP_URL = baseurl + "/auth/sign-up"
   export const SIGN_IN_URL = baseurl + "/auth/sign-in"

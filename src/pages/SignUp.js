@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Link, Navigate } from "react-router-dom";
-import { SIGN_UP_URL, sendRequest, fieldError, error } from '../utils';
+import { Link } from "react-router-dom";
+import { SIGN_UP_URL, fieldError, error } from '../utils';
 
 
 class SignUp extends React.Component {

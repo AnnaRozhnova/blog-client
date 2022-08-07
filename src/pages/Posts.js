@@ -1,7 +1,5 @@
 import React from "react";
 import Post from "../components/Post.js";
-import Profile from "../components/Profile";
-
 import { kitcut, GET_POSTS_URL } from "../utils";
 import sendRequest from "../utils";   
 import { Link } from "react-router-dom";
@@ -19,7 +17,6 @@ import { Link } from "react-router-dom";
     componentDidMount() {
           sendRequest(GET_POSTS_URL).then(data => {
             this.setState({data: data.reverse()})
-            //console.log(this.state)
         })
 
     }
