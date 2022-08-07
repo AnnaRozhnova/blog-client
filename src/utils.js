@@ -1,37 +1,24 @@
 import Swal from 'sweetalert2';
 
+  const baseurl = 'https://' + 'rozhnova-blog.herokuapp.com'
 
-  export const SIGN_UP_URL = "http://localhost:8000/auth/sign-up"
-  export const SIGN_IN_URL = "http://localhost:8000/auth/sign-in"
-  export const SIGN_OUT_URL = "http://localhost:8000/auth/sign-out"
+  export const SIGN_UP_URL = baseurl + "/auth/sign-up"
+  export const SIGN_IN_URL = baseurl + "/auth/sign-in"
+  export const SIGN_OUT_URL = baseurl + "/auth/sign-out"
 
-  export const GET_USER_POSTS_URL = "http://localhost:8000/posts/"
-  export const CREATE_POST_URL = "http://localhost:8000/posts/create"
-  export const GET_POSTS_URL = "http://localhost:8000/posts/"
-  export const GET_POST_URL = "http://localhost:8000/posts/post/"
+  export const GET_USER_POSTS_URL = baseurl + "/posts/"
+  export const CREATE_POST_URL = baseurl + "/posts/create"
+  export const GET_POSTS_URL = baseurl + "/posts/"
+  export const GET_POST_URL = baseurl + "/posts/post/"
 
-  export const CREATE_COMMENT_URL = "http://localhost:8000/comments/create"
-  export const GET_COMMENTS_URL = "http://localhost:8000/comments/"
+  export const CREATE_COMMENT_URL = baseurl + "/comments/create"
+  export const GET_COMMENTS_URL = baseurl + "/comments/"
 
-  export const GET_USERS_URL = "http://localhost:8000/users/"
+  export const GET_USERS_URL = baseurl + "/users/"
 
 
 
-/*
-export const SIGN_UP_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-up"
-export const SIGN_IN_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-in"
-export const SIGN_OUT_URL = "https://rozhnova-blog.herokuapp.com/auth/sign-out"
 
-export const GET_USER_POSTS_URL = "https://rozhnova-blog.herokuapp.com/posts/"
-export const CREATE_POST_URL = "https://rozhnova-blog.herokuapp.com/posts/create"
-export const GET_POSTS_URL = "https://rozhnova-blog.herokuapp.com/posts/"
-export const GET_POST_URL = "https://rozhnova-blog.herokuapp.com/posts/post/"
-
-export const CREATE_COMMENT_URL = "https://rozhnova-blog.herokuapp.com/comments/create"
-export const GET_COMMENTS_URL = "https://rozhnova-blog.herokuapp.com/comments/"
-
-export const GET_USERS_URL = "https://rozhnova-blog.herokuapp.com/users/"
-*/
 
   function fieldError() {
     Swal.fire({  
