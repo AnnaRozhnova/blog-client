@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
 import Post from '../components/Post';
 import Profile from '../components/Profile';
