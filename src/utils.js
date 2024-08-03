@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-  const baseurl = 'https://a19625-3ea3.a.d-f.pw'
+  const baseurl = 'http://localhost:8000'
 
   export const SIGN_UP_URL = baseurl + "/auth/sign-up"
   export const SIGN_IN_URL = baseurl + "/auth/sign-in"
